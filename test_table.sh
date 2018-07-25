@@ -1,9 +1,13 @@
 echo "================ Tables tests ================\n"
 
-echo "===== Test vertical==========\n"
+echo "===== Test vertical =========\n"
 ../bsq tables/test_vert.txt
 echo "\n===== Test horizontal =======\n"
 ../bsq tables/test_hor.txt
+echo "\n===== Test vertical 2========\n"
+../bsq tables/test_vert2.txt
+echo "\n===== Test horizontal 2 =====\n"
+../bsq tables/test_hor2.txt
 echo "\n===== Test 5 ================\n"
 ../bsq tables/test_5.txt
 echo "\n===== Test 39-80 ============\n"
