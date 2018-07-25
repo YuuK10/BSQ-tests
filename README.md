@@ -39,7 +39,7 @@
 
         ==============================================================
 
-    ###Here are some tests for the BSQ project of school 42 and 19 C piscines.
+    Here are some tests for the BSQ project of school 42 and 19 C piscines.
     
       In order to run them, put the "test" folder INTO your BSQ project's
     directory, and launch the "test_my_bsq_please.sh" script via the command
