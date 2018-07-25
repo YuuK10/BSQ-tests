@@ -4,4 +4,6 @@
 4 - Bad header
 5 - Empty table
 6 - Too many lines
-7 - Invalid filename
+7 - 0 lines table
+8 - Bad line count
+9 - Invalid filename
