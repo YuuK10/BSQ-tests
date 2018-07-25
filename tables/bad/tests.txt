@@ -1,0 +1,6 @@
+1 - Bad line and column count
+2 - Bad character at the end of the table
+3 - Bad character within the table
+4 - Bad header
+5 - Empty table
+6 - Too many lines
