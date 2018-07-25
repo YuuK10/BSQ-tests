@@ -17,26 +17,31 @@
                         #&&&&&&&(                                  
                         #&&&&&&&(                                  
 
-                      _____      _   __           ___  _    
-                     |_   _|    (_) [  |        .' ..]/ |_  
-                       | |      __   | |.--.   _| |_ `| |-' 
-                       | |   _ [  |  | '/'`\ \'-| |-' | |   
-                      _| |__/ | | |  |  \__/ |  | |   | |,  
-                     |________|[___][__;.__.'  [___]  \__/  
+
+          BBBBBBBBBBBBBBBBB      SSSSSSSSSSSSSSS      QQQQQQQQQ      
+          B::::::::::::::::B   SS:::::::::::::::S   QQ:::::::::QQ    
+          B::::::BBBBBB:::::B S:::::SSSSSS::::::S QQ:::::::::::::QQ  
+          BB:::::B     B:::::BS:::::S     SSSSSSSQ:::::::QQQ:::::::Q 
+            B::::B     B:::::BS:::::S            Q::::::O   Q::::::Q 
+            B::::B     B:::::BS:::::S            Q:::::O     Q:::::Q 
+            B::::BBBBBB:::::B  S::::SSSS         Q:::::O     Q:::::Q 
+            B:::::::::::::BB    SS::::::SSSSS    Q:::::O     Q:::::Q 
+            B::::BBBBBB:::::B     SSS::::::::SS  Q:::::O     Q:::::Q 
+            B::::B     B:::::B       SSSSSS::::S Q:::::O     Q:::::Q 
+            B::::B     B:::::B            S:::::SQ:::::O  QQQQ:::::Q 
+            B::::B     B:::::B            S:::::SQ::::::O Q::::::::Q 
+          BB:::::BBBBBB::::::BSSSSSSS     S:::::SQ:::::::QQ::::::::Q 
+          B:::::::::::::::::B S::::::SSSSSS:::::S QQ::::::::::::::Q  
+          B::::::::::::::::B  S:::::::::::::::SS    QQ:::::::::::Q   
+          BBBBBBBBBBBBBBBBB    SSSSSSSSSSSSSSS        QQQQQQQQ::::QQ 
+                                                              Q:::::Q
+                                                               QQQQQQ
 
         ==============================================================
 
-    Here is a custom lib based on most of the functions developped during
-     42 and 19 schools' "piscine" exams. It is supposed to help students
-      to accelerate the tests and the developpement of their own codes.
-      
-      
-                                HOW TO INSTALL
-                                ==============
-        Simply go to the lib's folder and execute 'sh libft_creator.sh' 
-      in your terminal. You should then see appear 'libft.a' in the 'lib'
-     directory. You also may use the .h  files in the 'headers' directory.
-     
-        Don't forget to place the .a file in the compilation directory and
-                 to compile your code with the -L . -lft flag.
+    ###Here are some tests for the BSQ project of school 42 and 19 C piscines.
+    
+      In order to run them, put the "test" folder INTO your BSQ project's
+    directory, and launch the "test_my_bsq_please.sh" script via the command
+                            sh test_my_bsq_please.sh
     
