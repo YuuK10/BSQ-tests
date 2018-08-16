@@ -1,26 +1,38 @@
+#!/bin/zsh
+
 cat header.md
 echo "\nOk, let's test your BSQ."
 echo "========================\n"
-echo "I am creating a 'results' directory where you'll find the results"
+echo "I am creating a 'results' directory where you'll find the results\n"
 mkdir results > /dev/null 2>&1
-echo "Now testing small to big tables..."
-sh test_table.sh > results/test_table.txt
-echo "Now testing multi arguments..."
-sh test_multi_arg.sh > results/test_multi_arg.txt
-echo "Now testing bad tables...\n(If it doesn't react, think about checking directory reading error)"
-sh bad_tests.sh > results/test_bad.txt
+rm -rf results/*
+sh test_table.sh
+sh test_multi_arg.sh
+sh bad_tests.sh
 echo "\n========================\n"
-echo "Let's compare your results hashs with the reference one...\n"
+echo "Let's compare your results hashs with the reference ones...\n"
 
-md5 results/test_table.txt results/test_multi_arg.txt results/test_bad.txt | cut -d ' ' -f 4 > results/hash.txt
+#md5 results/*.txt | cut -d ' ' -f 4 > results/hash.txt
+md5sum results/*.txt > results/hash.txt
 
-DIFF="$(diff -u results/hash.txt hash_ref.txt)"
+DIFF="$(diff results/hash.txt hash_ref.txt | grep '<' | cut -d ' ' -f4)"
+ANSWER=""
 
-if [ -z "$DIFF" ]
-then
-    echo "It looks the same, your BSQ passes all the tests !"
+if [ -z "$DIFF" ]; then
+	echo "		>>>>>> \e[32mSUCCESS\e[39m <<<<<<\n"
+	echo "It looks the same, your BSQ passes all the tests !"
 else
-    echo "It differs..."
-echo "${DIFF}"
+	echo "		>>>>>> \e[31mFAILURE\e[39m <<<<<<\n"
+	echo "Do you want to see what test(s) are failing ? (Y/N) "
+	
+	while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
+		read ANSWER
+		if [[ $ANSWER == "Y" ]]; then
+			echo "Ok, there's a problem. Here are the solutions that differ :\n"
+			echo "${DIFF}"
+		elif [[ $ANSWER != "N" ]]; then
+			echo "Please only type Y or N "
+		fi
+	done
 fi
 echo "\nAlright, it's over. You'll find the results in the 'results' directory."
