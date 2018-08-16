@@ -12,8 +12,11 @@ sh bad_tests.sh
 echo "\n========================\n"
 echo "Let's compare your results hashs with the reference ones...\n"
 
-#md5 results/*.txt | cut -d ' ' -f 4 > results/hash.txt
-md5sum results/*.txt > results/hash.txt
+if [ "$OSTYPE" = "darwin*" ]; then
+	md5 -r results/*.txt | cut -d ' ' -f 4 > results/hash.txt
+else
+	md5sum results/*.txt > results/hash.txt
+fi
 
 DIFF="$(diff results/hash.txt hash_ref.txt | grep '<' | cut -d ' ' -f4)"
 ANSWER=""
@@ -23,15 +26,15 @@ if [ -z "$DIFF" ]; then
 	echo "It looks the same, your BSQ passes all the tests !"
 else
 	echo "		>>>>>> \e[31mFAILURE\e[39m <<<<<<\n"
-	echo "Do you want to see what test(s) are failing ? (Y/N) "
+	echo -n "Do you want to see what test(s) are failing ? (Y/N) "
 	
 	while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
 		read ANSWER
 		if [[ $ANSWER == "Y" ]]; then
-			echo "Ok, there's a problem. Here are the solutions that differ :\n"
+			echo "Ok, here are the solutions that differ :\n"
 			echo "${DIFF}"
 		elif [[ $ANSWER != "N" ]]; then
-			echo "Please only type Y or N "
+			echo -n "Please only type Y or N "
 		fi
 	done
 fi
