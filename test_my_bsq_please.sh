@@ -12,7 +12,7 @@ sh bad_tests.sh
 echo "\n========================\n"
 echo "Let's compare your results hashs with the reference ones...\n"
 
-if [ "$OSTYPE" = "darwin*" ]; then
+if [[ $OSTYPE = darwin* ]]; then
 	md5 -r results/*.txt | cut -d ' ' -f 4 > results/hash.txt
 else
 	md5sum results/*.txt > results/hash.txt
