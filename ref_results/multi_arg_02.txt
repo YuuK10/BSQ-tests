@@ -1,0 +1,27 @@
+xxxo.
+xxx..
+xxx..
+.oo..
+...o.
+
+o..oo.o.o.
+o...xxxo..
+...oxxx...
+...oxxx..o
+o....o....
+..o.......
+.....o.o..
+o......o..
+.....oo...
+.o.o....o.
+
+map error
+
+oxo.o.o.
+.o.o.o.o
+o.o.o.o.
+.o.o.o.o
+o.o.o.o.
+.o.o.o.o
+o.o.o.o.
+.o.o.o.o
