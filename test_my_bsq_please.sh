@@ -37,5 +37,20 @@ else
 			echo -n "Please only type Y or N "
 		fi
 	done
+
+	if [[ $ANSWER = "Y" ]]; then
+		ANSWER=""
+		echo "Do you want to download the reference solutions to get a detailed diff ? (Y/N) "
+		while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
+			read ANSWER
+			if [[ $ANSWER == "Y" ]]; then
+				echo "Ok, downloading..."
+				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
+				diff results/* ref_results/*
+			elif [[ $ANSWER != "N" ]]; then
+				echo -n "Please only type Y or N "
+			fi
+		done
+	fi
 fi
 echo "\nAlright, it's over. You'll find the results in the 'results' directory."
