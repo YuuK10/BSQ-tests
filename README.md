@@ -43,5 +43,5 @@
     
     In order to run them, clone this repo into a folder INTO your BSQ project's
       directory (e.g. bsq/test), and launch the "test_my_bsq_please.sh" script 
-                    via the command "sh test_my_bsq_please.sh"
+        via the command "zsh test_my_bsq_please.sh", or as an executable
     
