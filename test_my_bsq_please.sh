@@ -12,10 +12,13 @@ sh bad_tests.sh
 echo "========================\n"
 echo "Let's compare your results hashs with the reference ones...\n"
 
+RESULT_FILES="$(find results/*.txt | sort)"
+
 if [[ $OSTYPE = darwin* ]]; then
-	md5 -r results/*.txt > hash.txt
+	md5 -r results/*.txt | sort -d -k 2,2 > hash.txt
 else
-	md5sum results/*.txt > hash.txt
+	md5sum results/*.txt | sort -d -k 2,2 > hash.txt
+	#ls -Q -v -x -w 0 "results/" | sed 's/ / results\//g' | xargs md5sum > hash.txt
 fi
 
 sed -i 's/  / /g' "hash.txt"
