@@ -18,7 +18,7 @@ else
 	md5sum results/*.txt > hash.txt
 fi
 
-sed -i -e 's/  / /g' "hash.txt"
+sed -i 's/  / /g' "hash.txt"
 
 DIFF="$(diff "hash.txt" "hash_ref.txt" | grep '<' | cut -d ' ' -f3)"
 ANSWER=""
