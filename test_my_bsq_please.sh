@@ -5,11 +5,11 @@ echo "\nOk, let's test your BSQ."
 echo "========================\n"
 echo "I am creating a 'results' directory where you'll find the results\n"
 mkdir results > /dev/null 2>&1
-rm -rf results/*
+rm -rf results/* > /dev/null 2>&1
 sh test_table.sh
 sh test_multi_arg.sh
 sh bad_tests.sh
-echo "\n========================\n"
+echo "========================\n"
 echo "Let's compare your results hashs with the reference ones...\n"
 
 if [[ $OSTYPE = darwin* ]]; then
