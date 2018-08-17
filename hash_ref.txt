@@ -27,5 +27,9 @@ fe8610f50710021f1a42ae6fc0decaa2  results/test_8.txt
 cd872f69074e316555fc497546f92e75  results/test_charset.txt
 3a357b755dd12d83ad1e43a0901d79a2  results/test_hor2.txt
 acf1185dfef31c89c6a19c833418c330  results/test_hor.txt
+5909022a23679504d2a912f8b9638a74  results/test_last_row2.txt
+2cc64a8769f6eec7c8030a8897f4b84e  results/test_last_row3.txt
+d63c61215967e852069bd6f522cde4ff  results/test_last_row4.txt
+e2e0595666b1b9d86a761f9be89e0f82  results/test_last_row.txt
 805bd0a6d931f20562e75fe42fb7b8f3  results/test_vert2.txt
 8782946d327446a6264a46406eea3370  results/test_vert.txt

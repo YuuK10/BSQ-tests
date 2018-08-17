@@ -5,7 +5,7 @@ echo "\nOk, let's test your BSQ."
 echo "========================\n"
 echo "I am creating a 'results' directory where you'll find the results\n"
 mkdir results > /dev/null 2>&1
-rm -rf results/* > /dev/null 2>&1
+(rm -rf results/* 2>&1) > /dev/null
 sh test_table.sh
 sh test_multi_arg.sh
 sh bad_tests.sh
@@ -18,7 +18,7 @@ else
 	md5sum results/*.txt > hash.txt
 fi
 
-DIFF="$(diff hash.txt hash_ref.txt | grep '<' | cut -d ' ' -f4)"
+DIFF="$(diff "hash.txt" "hash_ref.txt" | grep '<' | cut -d ' ' -f4)"
 ANSWER=""
 
 if [ -z "$DIFF" ]; then

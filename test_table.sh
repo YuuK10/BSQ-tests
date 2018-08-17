@@ -18,8 +18,13 @@ echo "Executing advanced custom tests...\n"
 ../bsq tables/test_hor.txt 2>&1 > results/test_hor.txt
 ../bsq tables/test_vert2.txt 2>&1 > results/test_vert2.txt
 ../bsq tables/test_hor2.txt 2>&1 > results/test_hor2.txt
+../bsq tables/test_last_row.txt 2>&1 > results/test_last_row.txt
+../bsq tables/test_last_row2.txt 2>&1 > results/test_last_row2.txt
+../bsq tables/test_last_row3.txt 2>&1 > results/test_last_row3.txt
+../bsq tables/test_last_row4.txt 2>&1 > results/test_last_row4.txt
 ../bsq tables/test_39-80.txt 2>&1 > results/test_39-80.txt
 ../bsq tables/test_68-27.txt 2>&1 > results/test_68-27.txt
 ../bsq tables/test_500.txt 2>&1 > results/test_500.txt
 ../bsq tables/test_5000.txt 2>&1 > results/test_5000.txt
 ../bsq tables/test_10000.txt 2>&1 > results/test_10000.txt
+
