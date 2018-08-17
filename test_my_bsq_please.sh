@@ -47,7 +47,7 @@ else
 			read ANSWER
 			if [[ $ANSWER == "Y" ]]; then
 				echo "Ok, downloading...\n"
-				#svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
+				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
 				for file in results/*; do
 					DIFF="$(diff -cN "${file}" "ref_results/${file##*/}")"
 					if [ ! -z "$DIFF" ]; then
