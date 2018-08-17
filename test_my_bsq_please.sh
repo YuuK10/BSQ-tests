@@ -13,12 +13,12 @@ echo "\n========================\n"
 echo "Let's compare your results hashs with the reference ones...\n"
 
 if [[ $OSTYPE = darwin* ]]; then
-	md5 -r results/*.txt > results/hash.txt
+	md5 -r results/*.txt > hash.txt
 else
-	md5sum results/*.txt > results/hash.txt
+	md5sum results/*.txt > hash.txt
 fi
 
-DIFF="$(diff results/hash.txt hash_ref.txt | grep '<' | cut -d ' ' -f4)"
+DIFF="$(diff hash.txt hash_ref.txt | grep '<' | cut -d ' ' -f4)"
 ANSWER=""
 
 if [ -z "$DIFF" ]; then
@@ -40,17 +40,23 @@ else
 
 	if [[ $ANSWER = "Y" ]]; then
 		ANSWER=""
-		echo "Do you want to download the reference solutions to get a detailed diff ? (Y/N) "
+		echo -n "\nDo you want to download the reference solutions to get a detailed diff ? (Y/N) "
 		while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
 			read ANSWER
 			if [[ $ANSWER == "Y" ]]; then
-				echo "Ok, downloading..."
-				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
-				diff results/* ref_results/*
+				echo "Ok, downloading...\n"
+				#svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
+				for file in results/*; do
+					DIFF="$(diff -cN "${file}" "ref_results/${file##*/}")"
+					if [ ! -z "$DIFF" ]; then
+						echo "${DIFF}"
+						echo "\n=============================\n"
+					fi
+				done
 			elif [[ $ANSWER != "N" ]]; then
 				echo -n "Please only type Y or N "
 			fi
 		done
 	fi
 fi
-echo "\nAlright, it's over. You'll find the results in the 'results' directory."
+echo "Alright, it's over. You'll find the results in the 'results' directory."

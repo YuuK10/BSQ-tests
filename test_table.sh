@@ -12,8 +12,6 @@ echo "Executing standard tests...\n"
 ../bsq tables/test_100_big_sol.txt 2>&1 > results/test_100_big_sol.txt
 ../bsq tables/test_1000.txt 2>&1 > results/test_1000.txt
 
- 2>&1 > results/test_
-
 echo "Executing advanced custom tests...\n"
 
 ../bsq tables/test_vert.txt 2>&1 > results/test_vert.txt
