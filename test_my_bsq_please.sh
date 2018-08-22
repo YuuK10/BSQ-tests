@@ -7,8 +7,8 @@ cat header.md
 echo "\nOk, let's test your BSQ."
 echo "\e[33m========================\e[39m\n"
 echo "I am creating a 'results' directory where you'll find the results\n"
+(rm -rf results 2>&1) > /dev/null
 mkdir results > /dev/null 2>&1
-(rm -rf results/* 2>&1) > /dev/null
 sh test_table.sh
 sh test_multi_arg.sh
 sh bad_tests.sh
