@@ -34,24 +34,25 @@ else
 	echo "		>>>>>> \e[31mFAILURE\e[39m <<<<<<\n"
 	echo -n "Do you want to see what test(s) are failing ? (Y/N) "
 	
-	while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
+	while [[ $ANSWER != "Y" && $ANSWER != "y" && $ANSWER != "n" && $ANSWER != "N" ]]; do
 		read ANSWER
-		if [[ $ANSWER == "Y" ]]; then
+		if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 			echo "Ok, here are the solutions that differ :\n"
 			echo "${DIFF}"
-		elif [[ $ANSWER != "N" ]]; then
+		elif [[ $ANSWER != "N" && $ANSWER != "n" ]]; then
 			echo -n "Please only type Y or N "
 		fi
 	done
 
-	if [[ $ANSWER = "Y" ]]; then
+	if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 		ANSWER=""
 		echo -n "\nDo you want to download the reference solutions to get a detailed diff ? (Y/N) "
-		while [[ $ANSWER != "Y" && $ANSWER != "N" ]]; do
+		while [[ $ANSWER != "Y" && $ANSWER != "y" && $ANSWER != "n" && $ANSWER != "N" ]]; do
 			read ANSWER
-			if [[ $ANSWER == "Y" ]]; then
+			if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 				echo "Ok, downloading...\n"
 				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
+				echo "\nHere's the diff :\n"
 				for file in results/*; do
 					DIFF="$(diff -cN "${file}" "ref_results/${file##*/}")"
 					if [ ! -z "$DIFF" ]; then
@@ -59,7 +60,7 @@ else
 						echo "\n=============================\n"
 					fi
 				done
-			elif [[ $ANSWER != "N" ]]; then
+			elif [[ $ANSWER != "N" && $ANSWER != "n" ]]; then
 				echo -n "Please only type Y or N "
 			fi
 		done
