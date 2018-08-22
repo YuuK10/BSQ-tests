@@ -1,16 +1,19 @@
 #!/bin/zsh
 
+clear
+echo "\n                       \e[33mBSQ Tests - By \e[39m"
 cat header.md
+
 echo "\nOk, let's test your BSQ."
-echo "========================\n"
+echo "\e[33m========================\e[39m\n"
 echo "I am creating a 'results' directory where you'll find the results\n"
 mkdir results > /dev/null 2>&1
 (rm -rf results/* 2>&1) > /dev/null
 sh test_table.sh
 sh test_multi_arg.sh
 sh bad_tests.sh
-echo "========================\n"
-echo "Let's compare your results hashs with the reference ones...\n"
+echo "\e[33m========================\e[39m\n"
+#echo "Let's compare your results hashs with the reference ones...\n"
 
 RESULT_FILES="$(find results/*.txt | sort)"
 
@@ -52,18 +55,18 @@ else
 			if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 				echo "Ok, downloading...\n"
 				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
-				echo "\nHere's the diff :\n"
+				D_DIFF="\nHere's the diff :\n\n"
 				for file in results/*; do
 					DIFF="$(diff -cN "${file}" "ref_results/${file##*/}")"
 					if [ ! -z "$DIFF" ]; then
-						echo "${DIFF}"
-						echo "\n=============================\n"
+						D_DIFF="$D_DIFF $DIFF\n\n=============================\n\n"
 					fi
 				done
+				echo $D_DIFF | less
 			elif [[ $ANSWER != "N" && $ANSWER != "n" ]]; then
 				echo -n "Please only type Y or N "
 			fi
 		done
 	fi
 fi
-echo "Alright, it's over. You'll find the results in the 'results' directory."
+echo "\n\e[33mAlright, it's over. You'll find the results in the 'results' directory."
