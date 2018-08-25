@@ -1,18 +1,18 @@
 #!/bin/zsh
 
 clear
-echo "\n                       \e[33mBSQ Tests - By \e[39m"
+echo "\n                                \e[33mBSQ Tests - By \e[39m"
 cat header.md
 
 echo "\nOk, let's test your BSQ."
-echo "\e[33m========================\e[39m\n"
+echo "\e[33m================================================================================\e[39m\n"
 echo "I am creating a 'results' directory where you'll find the results\n"
 (rm -rf results 2>&1) > /dev/null
 mkdir results > /dev/null 2>&1
 sh test_table.sh
 sh test_multi_arg.sh
 sh bad_tests.sh
-echo "\e[33m========================\e[39m\n"
+echo "\e[33m================================================================================\e[39m\n"
 #echo "Let's compare your results hashs with the reference ones...\n"
 
 RESULT_FILES="$(find results/*.txt | sort)"
@@ -41,7 +41,9 @@ else
 		read ANSWER
 		if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 			echo "Ok, here are the solutions that differ :\n"
-			echo "${DIFF}"
+			echo "\e[33m--------------------------------------------------------------------------------\e[39m\n"
+			echo "${DIFF}\n"
+			echo "\e[33m--------------------------------------------------------------------------------\e[39m\n"
 		elif [[ $ANSWER != "N" && $ANSWER != "n" ]]; then
 			echo -n "Please only type Y or N "
 		fi
@@ -54,8 +56,8 @@ else
 			read ANSWER
 			if [[ $ANSWER == "Y" || $ANSWER == "y" ]]; then
 				echo "Ok, downloading...\n"
-				svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results
-				D_DIFF="\nHere's the diff :\n\n"
+				(svn export https://github.com/YuuK10/BSQ-tests.git/branches/results/ref_results 2>&1) > /dev/null
+				D_DIFF="\nHere's the diff (press q to exit) :\n\n"
 				for file in results/*; do
 					DIFF="$(diff -cN "${file}" "ref_results/${file##*/}")"
 					if [ ! -z "$DIFF" ]; then

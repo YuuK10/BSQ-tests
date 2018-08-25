@@ -1,4 +1,4 @@
-echo "Executing standard input tests...\n"
+echo "Executing standard input tests..."
 
 echo "1.ox\n....." | ../bsq 2>&1 > results/stdin_01.txt
 echo "Hello world !" | ../bsq 2>&1 > results/stdin_02.txt

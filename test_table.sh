@@ -1,5 +1,4 @@
-echo "Executing algorithm tests...\n"
-echo "Executing standard tests...\n"
+echo "Executing standard algorithm tests..."
 ../bsq tables/test_1.txt 2>&1 > results/test_1.txt
 ../bsq tables/test_1_full.txt 2>&1 > results/test_1_full.txt
 ../bsq tables/test_5.txt 2>&1 > results/test_5.txt
@@ -12,7 +11,7 @@ echo "Executing standard tests...\n"
 ../bsq tables/test_100_big_sol.txt 2>&1 > results/test_100_big_sol.txt
 ../bsq tables/test_1000.txt 2>&1 > results/test_1000.txt
 
-echo "Executing advanced custom tests...\n"
+echo "Executing advanced algorithm tests..."
 
 ../bsq tables/test_vert.txt 2>&1 > results/test_vert.txt
 ../bsq tables/test_hor.txt 2>&1 > results/test_hor.txt
