@@ -11,6 +11,7 @@ echo "I am creating a 'results' directory where you'll find the results\n"
 mkdir results > /dev/null 2>&1
 sh test_table.sh
 sh test_multi_arg.sh
+sh test_inline.sh
 sh bad_tests.sh
 echo "\e[33m================================================================================\e[39m\n"
 #echo "Let's compare your results hashs with the reference ones...\n"

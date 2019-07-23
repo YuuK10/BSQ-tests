@@ -9,6 +9,10 @@ a0cbc9dff856c621a27a916948d374ae results/bad_8.txt
 a0cbc9dff856c621a27a916948d374ae results/bad_file.txt
 0ca99c9e406973e0f24ebdcd02f4813d results/multi_arg_01.txt
 87f93ca85200542ad6cc6df2535c4349 results/multi_arg_02.txt
+acf1185dfef31c89c6a19c833418c330 results/stdin_01.txt
+d41d8cd98f00b204e9800998ecf8427e results/stdin_02.txt
+3564917dd398496f33cd6420d6b40e17 results/stdin_03.txt
+c41a097abfc50b86a0cd4bb0fd206f7e results/stdin_04.txt
 65b14d69ad836a5109182b011009f490 results/test_10000.txt
 628c507e33e83b49c698e8221ae6dcac results/test_1000.txt
 d69678dca55a0d646317915ab001ee42 results/test_100_big_sol.txt
